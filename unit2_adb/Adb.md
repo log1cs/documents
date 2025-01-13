@@ -1,49 +1,64 @@
-# ADB ENABLE FOR RPI4
+# Enable ADB for debugging on Raspberry Pi 4
 
-### INSTALL ADB AND FASTBOOT
+### Install platform-tools
 ```
 sudo apt update
 sudo apt install android-tools-adb
 sudo apt install android-tools-fastboot
 ```
 
-### CHECK VERSION
+Or, if you want to download it instead of installing it:
+```
+https://developer.android.com/tools/releases/platform-tools
+```
+
+### Check ADB version
 ```
 adb version
 ```
-### Enable
 
-1.Sau khi boot được android lên các bạn chọn vào "Setting" 
+### Enable USB debugging/Bật gỡ lỗi USB
+### Tiếng Việt
+1. Sau khi boot được Android thì mở cài đặt 
 
-2.Chọn "About Table"
+2. Chọn "About Tablet"
 
-3.Click vào "Build Number" 7 8 lần đến khi nào nó hiện là "you are now developer"
+3. Click vào "Build Number" 7 lần cho đến khi hiện "You are now a developer!"
 
-4.Trong System sẽ có mục "Developer options"
+4. Vào System, tìm Developer Options.
 
-5.Click "Developer options" 
+5. Tìm và bật "USB debugging".
 
-6.Tìm và bật "USB debugging".
+### English
+1. Once booted to Android, open Settings.
 
-7.Reboot lại rpi4
+2. Find "About tablet", usually this will be in the very last section of the Settings app.
 
-### START SERVER 
+3. Tap 7 times on "Build number" until it returns "You are now a developer!"
+
+4. Open System section, find Developer Options.
+
+5. Toggle USB debugging on and you are good to go!
+
+### Start ADB server
 ```
 sudo adb start-server
 ```
 
-### RESTART SERVER IF ERROR
+### Restart ADB server in case something wrong happened
 ```
 sudo adb kill-server
 sudo adb start-server
 ```
-### ADB CMD
+
+### ADB shell
 ```
 adb devices 
 adb shell 
 ```
 
-
-adb shell : để kết nối với rpi4 xem các thư mục của nó
-
-adb devices : xem các thiết bị đang kết nối 
+### Giải thích:
+```
+adb shell: Mở shell trên thiết bị đang kết nối tới
+adb devices: xem các thiết bị đang kết nối 
+```
