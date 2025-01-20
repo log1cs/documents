@@ -25,3 +25,8 @@ English files usually ends with **_EN.md**.
 | Unit 4    | Getting started with Android Interface Definition Language (AIDL)                  |
 | Unit 5    | Hardware Abstraction Layer (HAL)                                                   |
 | Unit 6    | Security-enhanced Linux (SELinux)                                                  |
+
+# References/Các tài liệu tham khảo:
+
+### Unit 2:
+* [LineageOS Engineering Blog - Android Debugging Crash Course](https://lineageos.org/engineering/HowTo-Debugging/)
