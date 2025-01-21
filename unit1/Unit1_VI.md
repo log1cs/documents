@@ -124,7 +124,7 @@ Nếu như bạn gặp vấn đề trong lúc tải source code của AOSP về 
 Chạy command dưới để build AOSP image cho Raspberry Pi 4:
 ```
 . build/envsetup.sh
-lunch aosp_rpi4-trunk_staging-userdebug
+lunch aosp_rpi4-ap4a-userdebug
 make bootimage systemimage vendorimage -j$(nproc --all)
 ```
 

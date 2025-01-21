@@ -127,7 +127,7 @@ Run the command below to build the AOSP image for the Raspberry Pi 4:
 
 ```
 . build/envsetup.sh
-lunch aosp_rpi4-trunk_staging-userdebug
+lunch aosp_rpi4-ap4a-userdebug
 make bootimage systemimage vendorimage -j$(nproc --all)
 ```
 
