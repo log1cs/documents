@@ -121,10 +121,19 @@ Nếu như bạn gặp vấn đề trong lúc tải source code của AOSP về 
 **Nếu như bạn không gặp vấn đề gì trong lúc tải/đồng bộ source code, thì chúng ta sẽ cùng đến bước tiếp theo - building AOSP!**
 
 # Building AOSP image & tạo flashable image để nạp vào Raspberry Pi
+### Giải thích về các build type:
+AOSP có 3 loại build variants: `user`, `userdebug` và `eng`. Và 3 loại này thì đều có các chức năng khác nhau, tuỳ thuộc vào mong muốn của người build:
+
+| Build variants     | Chức năng                                  |
+| ------------------:|:---------------------------------------------------------------------------------- |
+| `eng`              | Cho người dùng quyền superuser và ADB (root) shell không cần phải thông qua authentication, vô cùng thích hợp cho việc debugging. Tuy nhiên sẽ ảnh hưởng đến hiệu năng phần mềm vì log print ra sẽ rất nhiều cũng như là các tiến trình debugging chạy ngầm trong hệ thống, do các modules được build đều có tag liên quan đến `eng`. |
+| `userdebug`        | Giống như `eng`, tuy nhiên để có quyền truy cập vào ADB/Root thì phải thông qua authentication. Các module sẽ có tag `debug` và sẽ có ít tiến trình debugging hơn, thích hợp cho việc bench hiệu năng hệ thống để từ đó đưa ra tinh chỉnh. |
+| `user`             | ADB không được bật sẵn và phải được bật thủ công. Các module sẽ được build với tag `user` và sẽ không còn tiến trình debug nào khác, thích hợp cho production. |
+
 Chạy command dưới để build AOSP image cho Raspberry Pi 4:
 ```
 . build/envsetup.sh
-lunch aosp_rpi4-ap4a-userdebug
+lunch aosp_rpi4-ap4a-<buildtype>
 make bootimage systemimage vendorimage -j$(nproc --all)
 ```
 
